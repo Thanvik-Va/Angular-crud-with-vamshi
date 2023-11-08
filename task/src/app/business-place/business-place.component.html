@@ -1,0 +1,208 @@
+<!--
+  <h1 mat-dialog-title class="mat-title-head">Add Business Place
+    <button mat-button class="close-icon" [mat-dialog-close]="true">
+      <mat-icon>X</mat-icon>
+    </button>
+  </h1>
+  <hr>
+
+<form action="" [formGroup]="bpRegister" (ngSubmit)="onSubmit()">
+<div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Bp Legal Name</mat-label>
+        <input matInput type="text" placeholder="Hyderabad" formControlName="businessPlaceLegalName">
+
+      </mat-form-field>
+      <div *ngIf="businessPlaceLegalName.touched && businessPlaceLegalName.invalid"
+      class="text-danger">
+        <div *ngIf="businessPlaceLegalName.errors?.['required']" class="text-danger"></div>
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Location</mat-label>
+        <input matInput placeholder="Ex:Bengaluru" formControlName="businessPlaceLocation">
+      </mat-form-field>
+      <div *ngIf="businessPlaceLocation.touched && businessPlaceLocation.invalid"
+      class="text-danger">
+        <div *ngIf="businessPlaceLocation.errors?.['required']" class="text-danger"></div>
+      </div>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input matInput type="text" placeholder="Ex:+919000011111" formControlName="businessPlaceContact">
+      </mat-form-field>
+      <div *ngIf="  businessPlaceContact.touched && businessPlaceContact.invalid"
+      class="text-danger">
+      <div *ngIf="businessPlaceContact.errors?.['required']">
+
+      </div>
+      <div *ngIf="businessPlaceContact.errors?.['minlength']">
+        Mobile Number</div>
+      <div *ngIf="businessPlaceContact.errors?.['pattern']">
+        </div>
+
+    </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Pincode</mat-label>
+        <input matInput  type="number" placeholder="Ex:5000110" formControlName="businessPlaceZipCode">
+      </mat-form-field>
+
+      <div *ngIf="businessPlaceZipCode.touched && businessPlaceZipCode.invalid"
+      class="text-danger">
+        <div *ngIf="businessPlaceZipCode.errors?.['required']" class="text-danger">
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row" >
+      <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="countryName" >
+         <mat-option *ngFor="let country of countries" [value]="country">
+          {{country}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <mat-select formControlName="stateName" >
+          <mat-option *ngFor="let state of states" [value]="state">
+           {{state}}
+           </mat-option>
+         </mat-select>
+      </mat-form-field>
+    </div>
+
+
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button matDialogClose="true">Cancel</button>
+  &nbsp;
+  <button mat-raised-button color="primary" [disabled]="bpRegister.invalid" mat-dialog-close="true">Save</button>
+</div>
+</form> -->
+
+<span mat-dialog-title class="mat-title-head">Add Business Place
+  <button mat-button class="close-icon" [mat-dialog-close]="true">
+    <mat-icon>X</mat-icon>
+  </button>
+</span>
+<hr>
+
+<form action [formGroup]="bpRegister" (ngSubmit)="onSubmit()" class="form-test">
+  <div mat-dialog-content class="container-fluid">
+    <div class="row mt-2">
+      <div clas="col-12 col-md-6 ">
+        <label>Bp Legal Name*</label>
+        <input type="text" class="form-control"
+          matInput type="text" placeholder="Hyderabad"
+          formControlName="businessPlaceLegalName">
+        <div
+          *ngIf="businessPlaceLegalName.touched && businessPlaceLegalName.invalid"
+          class="text-danger">
+          <div *ngIf="businessPlaceLegalName.errors?.['required']"
+            class="text-danger">
+            *required
+          </div>
+        </div>
+      </div>
+      <div clas="col-12 col-md-6 mt-2">
+        <label>Location*</label>
+        <input type="text" class="form-control"
+          placeholder="1234 Main St" formControlName="businessPlaceLocation">
+        <div
+          *ngIf="businessPlaceLocation.touched && businessPlaceLocation.invalid"
+          class="text-danger">
+          <div *ngIf="businessPlaceLocation.errors?.['required']"
+            class="text-danger">*required </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div clas="col-12 col-md-6 ml-2 ">
+        <label>Mobile No*</label>
+        <input type="text" class="form-control"
+          matInput type="text" placeholder="Ex:+919000011111"
+          formControlName="businessPlaceContact">
+        <div
+          *ngIf="  businessPlaceContact.touched && businessPlaceContact.invalid"
+          class="text-danger">
+          <div *ngIf="businessPlaceContact.errors?.['required']">
+            *required
+          </div>
+
+          <div *ngIf="businessPlaceContact.errors?.['pattern']">
+            *Invalid mobile number
+          </div>
+
+        </div>
+      </div>
+      <div clas="col-12 col-md-6 mt-2">
+        <label>Pincode*</label>
+        <input type="text" class="form-control"
+          type="number" placeholder="Ex:5000110"
+          formControlName="businessPlaceZipCode">
+        <div
+          *ngIf="businessPlaceZipCode.touched && businessPlaceZipCode.invalid"
+          class="text-danger">
+          <div *ngIf="businessPlaceZipCode.errors?.['required']"
+            class="text-danger">
+            * PinCode required
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2 ">
+      <div clas="col-12 col-md-6 ml-2 ">
+        <label>State*</label>
+        <select id="inputState" class="form-control w-100"
+          formControlName="stateName">
+          <option>Please select State</option>
+          <option *ngFor="let state of states" [value]="state">{{state}}</option>
+        </select>
+        <div *ngIf="stateName.touched && stateName.invalid"
+          class="text-danger">
+          <div *ngIf="stateName.errors?.['required']" class="text-danger">
+            *select state
+          </div>
+
+        </div>
+
+      </div>
+
+      <div clas="col-12 col-md-6 ">
+        <label>Country*</label>
+        <select class="form-control"
+          formControlName="countryName" id="inputCountry">
+          <option selected>Please select Country</option>
+          <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+        </select>
+        <div *ngIf="countryName.touched && countryName.invalid"
+          class="text-danger">
+          <div *ngIf="countryName.errors?.['required']" class="text-danger">
+            *select country
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div mat-dialog-actions align="start">
+
+    <button matDialogClose="true" class="btn btn-act bg-danger btn-danger">Cancel</button>
+
+    <button class="btn btn-success btn-act" [disabled]="bpRegister.invalid" type="submit"
+      mat-dialog-close="true">Save</button>
+
+  </div>
+</form>
+
+
+
+

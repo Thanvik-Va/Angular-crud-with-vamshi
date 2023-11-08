@@ -1,0 +1,19 @@
+#inputState,#inputCountry{
+  height: 35px;;
+}
+.row-check{
+  height: 65px;
+
+}
+.modal-header{
+  height: 50px;
+}
+.modal-footer{
+  height: 50px;
+}
+.form-row{
+  height: 75px;
+  margin-top: 2px;
+
+}
+

@@ -1,0 +1,31 @@
+.content{
+  padding-top: 10px;
+}
+.row
+{
+  display: flex;
+  gap: 10px;
+}
+.close-icon
+{
+  margin-left: 160px;
+  position:absolute;
+  top:0;
+  right:0;
+  transition: translate(50%,-50%);
+}
+.btn-act
+{
+ width:160px;
+  height: 40px;
+  margin-left: 20px;
+}
+#inputState,#inputCountry
+{
+  width: 190px;
+}
+.form-test
+{
+  padding: 10px;
+  background-color: whitesmoke;
+}
